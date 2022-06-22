@@ -1267,6 +1267,10 @@ then
 
     if [ ! -d download ]
     then
+        url_id=`cat $languageid/starturl | cut -c 24-`
+        $this get_from_bibleis `echo 'http://live.bible.is/bible/'$url_id`
+        # the format of the starturl changed from http://listen.bible.is/... to http://live.bible.is/bible/...
+
         $this get_from_bibleis `cat $languageid/starturl`
     fi
 
